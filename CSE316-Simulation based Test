@@ -1,0 +1,25 @@
+import copy
+
+queue = [86, 1470, 913, 1774, 948, 1509, 1022, 1750, 130]
+
+
+# SCAN
+q = copy.copy(queue)
+total = 0
+direction = 1
+curr = q.pop(0)
+seq = [curr]
+while len(q)>0:
+    curr += direction
+    total += 1
+    if curr in q:
+        q.remove(curr)
+        seq.append(curr)
+    if curr == 4999:
+        direction = -1
+    if curr == 0:
+        direction = 1
+print ("SCAN:", total, seq)
+
+#prints:
+#SCAN: 1688 [86, 130, 913, 948, 1022, 1470, 1509, 1750, 1774]
